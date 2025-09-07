@@ -137,7 +137,7 @@ services:
 #  ╚══▀▀═╝ ╚═════╝ ╚═╝   ╚═╝      ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝                                                                                          
                                                                                              
   qbittorrent:
-    image: linuxserver/qbittorrent:latest
+    image: qbittorrentofficial/qbittorrent-nox:latest
     container_name: qbittorrent
     hostname: qbittorrent
     restart: unless-stopped
@@ -147,12 +147,12 @@ services:
       - ${ARRPATH}qbittorrent/config:/config
       - ${ARRPATH}Downloads:/downloads
     ports:
-      - 8080:8080
-      - 6881:6881
-      - 6881:6881/udp
+      - 8123:8123
+      - 6887:6887
+      - 6887:6887/udp
     environment:
-      - WEBUI_PORT=8080
-      - TORRENTING_PORT=6881
+      - WEBUI_PORT=8123
+      - TORRENTING_PORT=6887
     healthcheck:
       start_period: 15s
     env_file:
